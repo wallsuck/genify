@@ -1,86 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+  <meta charset="UTF-8">
   <title>Genify</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body{
+      margin:0;
+      font-family:sans-serif;
+      background:#020617;
+      color:white;
+    }
+
+    .container{
+      max-width:500px;
+      margin:auto;
+      padding:20px;
+    }
+
+    input{
+      width:100%;
+      padding:14px;
+      border-radius:12px;
+      border:none;
+      background:#0f172a;
+      color:white;
+      margin-top:15px;
+    }
+
+    .templates{
+      display:flex;
+      gap:10px;
+      overflow:auto;
+      margin-top:15px;
+    }
+
+    .card{
+      min-width:90px;
+      padding:12px;
+      background:#1e293b;
+      border-radius:10px;
+      text-align:center;
+      cursor:pointer;
+    }
+
+    .selected{
+      outline:2px solid #3b82f6;
+    }
+
+    button{
+      width:100%;
+      padding:14px;
+      margin-top:12px;
+      border:none;
+      border-radius:12px;
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .blue{background:#3b82f6;}
+    .green{background:#22c55e;}
+
+    #videoBox{
+      margin-top:20px;
+      height:400px;
+      border-radius:20px;
+      background:#111;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    #videoText{
+      text-align:center;
+      font-size:18px;
+      white-space:pre-line;
+    }
+
+    .loading{
+      opacity:0.6;
+    }
+  </style>
 </head>
 
-<body style="margin:0;font-family:sans-serif;background:#020617;color:white;">
+<body>
 
-<div style="padding:20px;max-width:500px;margin:auto;">
+<div class="container">
 
   <h2>⚡ Genify</h2>
   <p style="opacity:0.6;">AI Video Generator</p>
 
-  <!-- INPUT LINK -->
-  <input id="linkInput" placeholder="Paste link produk..." 
-  style="width:100%;padding:14px;border-radius:12px;border:none;margin-top:15px;background:#0f172a;color:white;" />
+  <!-- INPUT -->
+  <input id="linkInput" placeholder="Paste link produk..." />
 
   <!-- TEMPLATE -->
-  <h3 style="margin-top:25px;">🎬 Template</h3>
+  <h3>🎬 Template</h3>
 
-  <div style="display:flex;gap:10px;overflow:auto;">
-    <div onclick="selectTemplate(event,'ugc')" class="card selected">UGC</div>
-    <div onclick="selectTemplate(event,'hook')" class="card">Hook</div>
-    <div onclick="selectTemplate(event,'review')" class="card">Review</div>
-    <div onclick="selectTemplate(event,'ads')" class="card">Ads</div>
+  <div class="templates">
+    <div class="card selected" onclick="selectTemplate(event,'ugc')">UGC</div>
+    <div class="card" onclick="selectTemplate(event,'hook')">Hook</div>
+    <div class="card" onclick="selectTemplate(event,'review')">Review</div>
+    <div class="card" onclick="selectTemplate(event,'ads')">Ads</div>
   </div>
 
   <!-- BUTTON -->
-  <button onclick="generateAI()" class="btn blue">🚀 Generate AI</button>
-  <button onclick="playVoice()" class="btn green">🔊 Voice</button>
+  <button class="blue" onclick="generateAI()">🚀 Generate AI</button>
+  <button class="green" onclick="playVoice()">🔊 Voice</button>
 
-  <!-- VIDEO PREVIEW -->
+  <!-- OUTPUT -->
   <div id="videoBox">
     <div id="videoText">Hasil AI muncul di sini...</div>
   </div>
 
 </div>
-
-<style>
-.card{
-  min-width:90px;
-  padding:12px;
-  background:#1e293b;
-  border-radius:10px;
-  text-align:center;
-  cursor:pointer;
-}
-
-.selected{
-  outline:2px solid #3b82f6;
-}
-
-.btn{
-  width:100%;
-  padding:14px;
-  margin-top:12px;
-  border:none;
-  border-radius:12px;
-  color:white;
-  font-weight:bold;
-}
-
-.blue{background:#3b82f6;}
-.green{background:#22c55e;}
-
-#videoBox{
-  margin-top:20px;
-  height:400px;
-  border-radius:20px;
-  background:#111;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
-#videoText{
-  font-size:18px;
-  text-align:center;
-  white-space:pre-line;
-}
-</style>
 
 <script>
 let selectedTemplate = "ugc";
@@ -93,24 +128,25 @@ function selectTemplate(e, type){
 
 async function generateAI(){
   const link = document.getElementById("linkInput").value;
+  const el = document.getElementById("videoText");
 
   if(!link){
     alert("Masukkan link dulu!");
     return;
   }
 
-  const el = document.getElementById("videoText");
   el.innerText = "⏳ Generating AI...";
+  el.classList.add("loading");
 
-  try {
-    const res = await fetch("/api/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+  try{
+    const res = await fetch("/api/generate",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
       },
-      body: JSON.stringify({
-        link: link,
-        template: selectedTemplate
+      body:JSON.stringify({
+        link:link,
+        template:selectedTemplate
       })
     });
 
@@ -118,15 +154,17 @@ async function generateAI(){
 
     el.innerText = data.script || "Gagal generate 😢";
 
-  } catch (err) {
-    el.innerText = "Error koneksi API ❌";
+  }catch(err){
+    el.innerText = "Error koneksi ❌";
   }
+
+  el.classList.remove("loading");
 }
 
 function playVoice(){
   const text = document.getElementById("videoText").innerText;
 
-  if(!text){
+  if(!text || text.includes("Generating")){
     alert("Generate dulu!");
     return;
   }
