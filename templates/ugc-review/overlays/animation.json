@@ -1,0 +1,5 @@
+{
+  "title": { "type": "fadeIn", "duration": 1 },
+  "subtitle": { "type": "slideUp", "duration": 1.5 },
+  "cta": { "type": "bounce", "duration": 0.5 }
+}
