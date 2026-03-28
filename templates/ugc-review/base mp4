@@ -1,1 +1,0 @@
-ffmpeg -f lavfi -i color=c=black:s=1280x720:d=15 -pix_fmt yuv420p templates/ugc-review/base.mp4
