@@ -1,0 +1,12 @@
+{
+  "templateName": "hook-problem",
+  "duration": 10,
+  "font": "Helvetica",
+  "fontSize": 32,
+  "textColor": "#FFFF00",
+  "overlayPositions": {
+    "problem": { "x": 60, "y": 50 },
+    "solution": { "x": 60, "y": 200 }
+  },
+  "defaultMusic": "assets/music/bgm2.mp3"
+}
