@@ -1,0 +1,10 @@
+{
+  "templateName": "ugc-review",
+  "duration": 15,
+  "font": "Arial",
+  "fontSize": 36,
+  "textColor": "#FFFFFF",
+  "overlayPositions": "overlays/text_positions.json",
+  "animations": "overlays/animation.json",
+  "defaultMusic": "assets/music/bgm1.mp3"
+}
