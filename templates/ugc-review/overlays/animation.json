@@ -4,18 +4,22 @@
     "duration": 0.5,
     "start_time": 1.5,
     "easing": "ease-in-out",
-    "effect": "pop-up"
+    "effect": "pop-up",
+    "scale_start": 0.8,
+    "scale_end": 1.0
   },
   "text_hook_anim": {
     "type": "slide-down",
-    "duration": 0.3,
-    "start_time": 0.2,
-    "easing": "bounce"
+    "duration": 0.4,
+    "start_time": 0.3,
+    "easing": "bounce",
+    "distance_px": 50
   },
   "cta_pulse": {
     "type": "loop",
     "effect": "pulse",
-    "duration": 2.0,
-    "scale": 1.05
+    "duration": 1.5,
+    "scale_multiplier": 1.05,
+    "start_time": 3.0
   }
 }
