@@ -1,5 +1,23 @@
 {
-  "title": { "x": 50, "y": 50 },
-  "subtitle": { "x": 50, "y": 120 },
-  "cta": { "x": 50, "y": 400 }
+  "hook_title": {
+    "description": "Judul pemancing di atas kepala avatar",
+    "x": 540,
+    "y": 250,
+    "max_width": 900,
+    "alignment": "center"
+  },
+  "product_price": {
+    "description": "Harga diskon, agak di kiri tengah",
+    "x": 100,
+    "y": 900,
+    "max_width": 600,
+    "alignment": "left"
+  },
+  "call_to_action": {
+    "description": "Ajakan klik keranjang kuning",
+    "x": 540,
+    "y": 1400,
+    "max_width": 850,
+    "alignment": "center"
+  }
 }
