@@ -1,22 +1,22 @@
 {
   "hook_title": {
-    "description": "Judul pemancing di atas kepala avatar",
+    "description": "Judul pemancing di area atas kepala avatar (Sepertiga atas)",
     "x": 540,
-    "y": 250,
+    "y": 280,
     "max_width": 900,
     "alignment": "center"
   },
   "product_price": {
-    "description": "Harga diskon, agak di kiri tengah",
-    "x": 100,
-    "y": 900,
+    "description": "Harga diskon/promo, ditaruh di sisi kiri agar aman dari tombol Like di kanan",
+    "x": 120,
+    "y": 850,
     "max_width": 600,
     "alignment": "left"
   },
   "call_to_action": {
-    "description": "Ajakan klik keranjang kuning",
+    "description": "Ajakan klik keranjang kuning, ditaruh di atas area caption/username",
     "x": 540,
-    "y": 1400,
+    "y": 1450,
     "max_width": 850,
     "alignment": "center"
   }
