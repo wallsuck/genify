@@ -1,5 +1,21 @@
 {
-  "title": { "type": "fadeIn", "duration": 1 },
-  "subtitle": { "type": "slideUp", "duration": 1.5 },
-  "cta": { "type": "bounce", "duration": 0.5 }
+  "product_entrance": {
+    "type": "fade-in",
+    "duration": 0.5,
+    "start_time": 1.5,
+    "easing": "ease-in-out",
+    "effect": "pop-up"
+  },
+  "text_hook_anim": {
+    "type": "slide-down",
+    "duration": 0.3,
+    "start_time": 0.2,
+    "easing": "bounce"
+  },
+  "cta_pulse": {
+    "type": "loop",
+    "effect": "pulse",
+    "duration": 2.0,
+    "scale": 1.05
+  }
 }
