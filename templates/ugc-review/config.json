@@ -1,10 +1,37 @@
 {
-  "templateName": "ugc-review",
-  "duration": 15,
-  "font": "Arial",
-  "fontSize": 36,
-  "textColor": "#FFFFFF",
-  "overlayPositions": "overlays/text_positions.json",
-  "animations": "overlays/animation.json",
-  "defaultMusic": "assets/music/bgm1.mp3"
+  "template_id": "ugc-review-01",
+  "template_name": "UGC Review Standard",
+  "base_video": "base.mp4",
+  "duration": 30,
+  "default_music": "assets/music/bgm1.mp3",
+  "global_styling": {
+    "font": "Arial",
+    "font_size": 36,
+    "text_color": "#FFFFFF"
+  },
+  "assets": {
+    "product_image": {
+      "type": "image",
+      "source": "{dynamic_scraped_image}",
+      "position": {
+        "x": 540, 
+        "y": 300  
+      },
+      "size": {
+        "max_width": 400,
+        "max_height": 400
+      },
+      "styling": {
+        "fit": "contain", 
+        "border_radius": 24,
+        "shadow": true
+      },
+      "animation_ref": "overlays/animation.json#product_entrance"
+    },
+    "hook_text": {
+      "type": "text",
+      "content": "{dynamic_ai_hook}",
+      "position_ref": "overlays/text_positions.json#hook_title"
+    }
+  }
 }
