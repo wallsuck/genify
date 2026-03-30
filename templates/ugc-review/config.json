@@ -1,37 +1,21 @@
 {
-  "template_id": "ugc-review-01",
-  "template_name": "UGC Review Standard",
-  "base_video": "base.mp4",
-  "duration": 30,
-  "default_music": "assets/music/bgm1.mp3",
-  "global_styling": {
-    "font": "Arial",
-    "font_size": 36,
-    "text_color": "#FFFFFF"
-  },
-  "assets": {
-    "product_image": {
-      "type": "image",
-      "source": "{dynamic_scraped_image}",
-      "position": {
-        "x": 540, 
-        "y": 300  
-      },
-      "size": {
-        "max_width": 400,
-        "max_height": 400
-      },
-      "styling": {
-        "fit": "contain", 
-        "border_radius": 24,
-        "shadow": true
-      },
-      "animation_ref": "overlays/animation.json#product_entrance"
+  "template_name": "ugc-review-v1",
+  "canvas": { "width": 1080, "height": 1920 },
+  "elements": {
+    "avatar": {
+      "position": { "x": 700, "y": 1200 },
+      "size": { "width": 400, "height": 700 }
     },
-    "hook_text": {
-      "type": "text",
-      "content": "{dynamic_ai_hook}",
-      "position_ref": "overlays/text_positions.json#hook_title"
+    "product_image": {
+      "position": { "x": 100, "y": 400 },
+      "size": { "width": 880, "height": 800 },
+      "animation": "fade-in"
+    },
+    "subtitle": {
+      "font": "assets/fonts/Montserrat-Bold.ttf",
+      "font_size": 48,
+      "color": "#ffffff",
+      "position": { "x": "center", "y": 1600 }
     }
   }
 }
