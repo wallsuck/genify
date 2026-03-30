@@ -7,7 +7,12 @@
     "inpainting_model": "midjourney_v6_or_kling",
     "talking_head_model": "sadtalker_or_liveportrait"
   },
-  "base_prompt": "A beautiful Indonesian creator, realistic, highly detailed, 4k, cinematic lighting, natural pose, looking directly at the camera, talking enthusiastically",
+  "prompts": {
+    "fashion_wearable": "A beautiful Indonesian creator, realistic, 4k, cinematic lighting, looking at camera, WEARING [product_image] perfectly fitted, natural pose",
+    "gadget_handheld": "A beautiful Indonesian creator, realistic, 4k, looking at camera, HOLDING [product_image] naturally in hand, aesthetic background",
+    "large_appliance": "A beautiful Indonesian creator, realistic, 4k, STANDING NEXT TO [product_image], pointing at it enthusiastically, modern room background",
+    "general_item": "A beautiful Indonesian creator, realistic, 4k, sitting at a desk, [product_image] is placed cleanly on the desk in front of her"
+  },
   "post_processing": {
     "add_overlays": true,
     "subtitle_font": "assets/fonts/Montserrat-Bold.ttf"
