@@ -1,21 +1,15 @@
 {
-  "template_name": "ugc-review-v1",
-  "canvas": { "width": 1080, "height": 1920 },
-  "elements": {
-    "avatar": {
-      "position": { "x": 700, "y": 1200 },
-      "size": { "width": 400, "height": 700 }
-    },
-    "product_image": {
-      "position": { "x": 100, "y": 400 },
-      "size": { "width": 880, "height": 800 },
-      "animation": "fade-in"
-    },
-    "subtitle": {
-      "font": "assets/fonts/Montserrat-Bold.ttf",
-      "font_size": 48,
-      "color": "#ffffff",
-      "position": { "x": "center", "y": 1600 }
-    }
+  "template_name": "ugc-review-generative",
+  "resolution": "1080x1920",
+  "aspect_ratio": "9:16",
+  "api_settings": {
+    "vton_model": "ootd_diffusion_v1",
+    "inpainting_model": "midjourney_v6_or_kling",
+    "talking_head_model": "sadtalker_or_liveportrait"
+  },
+  "base_prompt": "A beautiful Indonesian creator, realistic, highly detailed, 4k, cinematic lighting, natural pose, looking directly at the camera, talking enthusiastically",
+  "post_processing": {
+    "add_overlays": true,
+    "subtitle_font": "assets/fonts/Montserrat-Bold.ttf"
   }
 }
